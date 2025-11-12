@@ -1,7 +1,62 @@
 # Martin Project
 # 项目经历
 
-## 1. Jarvis
+## 1. Another Me
+**担任角色**：前端开发工程师  
+**项目周期**：2025.03-2025.11
+
+**项目概述**：基于 Android 平台的智能 AI 聊天应用，集成本地 AI 模型推理、多平台用户认证、订阅支付系统、社交媒体分享等功能，为用户提供安全、私密且功能丰富的 AI 对话体验。
+
+**个人职责**：
+- 项目负责人（团队开发）
+- 负责应用的核心功能开发，包括 AI 聊天系统、用户认证、支付订阅、社交分享等 17 个核心 Activity 模块
+- 设计良好的架构，采用 Kotlin + MVVM 设计模式，不断迭代优化，维护效率高
+- 编写开发规范、代码规范、组件的描述、模块划分、方法注解
+- 协助测试团队进行功能测试和性能测试，保证应用的质量和稳定性
+
+**技术要点**：
+- 从 0 到 1 搭建项目并设计网络请求架构，采用 Retrofit + RxJava + OkHttp 框架实现高效稳定的网络通信
+- 集成 Google MediaPipe LLM 进行本地 AI 推理，实现流式响应显示，当本地模型不可用时自动切换到模拟响应模式
+- 集成 Google 登录认证系统，使用最新的 Credential Manager API，实现用户信息的本地加密存储和自动登录
+- 集成 Stripe 支付系统，使用 PaymentSheet 实现多层级订阅（基础版、高级版、超级高级版），支持 WebView 支付作为备选方案
+- 集成 Twitter、Facebook、Kakao 等社交媒体 SDK，实现多平台内容分享功能
+- 开发 Token 挖矿系统、排行榜系统、邀请奖励等游戏化元素，提升用户参与度
+- 集成 Persona SDK 实现 KYC 身份验证功能
+- 使用 ExoPlayer 实现视频背景播放，使用 Glide 实现图片懒加载
+- 自定义 StackLayoutManager 实现卡片堆叠动画效果，优化 UI 交互体验
+- 对应用进行性能优化，包括内存优化、布局优化、代码优化等，确保 60fps 流畅动画效果
+- 开发崩溃管理组件工具类，实现启动优化、弱网优化，为其他 App 提供支持
+
+---
+
+## 2. RWA Frontend
+**担任角色**：前端开发工程师  
+**项目周期**：2025.09-2025.11
+
+**项目概述**：基于 Next.js 构建的去中心化应用（DApp），集成 Privy 钱包连接、多链网络切换、代币转账、消息签名等 Web3 功能，为用户提供完整的区块链交互体验。
+
+**个人职责**：
+- 负责 Web3 钱包集成和区块链交互功能开发
+- 设计并实现钱包连接、网络切换、智能合约调用等核心模块
+- 开发用户认证系统，基于钱包签名实现去中心化登录
+- 负责前端架构设计，采用 React Hooks + Context 模式管理应用状态
+- 配置开发和生产环境的部署流程，使用 PM2 进行进程管理
+
+**技术要点**：
+- 集成 Privy SDK 实现多钱包连接支持，包括 MetaMask、WalletConnect 等主流钱包
+- 使用 ethers.js v6 与以太坊区块链交互，实现 USDT、WBTC、POWER 等 ERC-20 代币合约调用
+- 开发自动网络切换功能，确保用户在正确的区块链网络上进行操作
+- 实现基于钱包签名的去中心化身份认证，生成随机 nonce 防止重放攻击
+- 设计 Token 管理机制，实现访问令牌的本地存储和自动刷新
+- 使用 TypeScript 提供类型安全，结合 React Context 实现全局状态管理
+- 配置 Axios 拦截器自动处理认证 Token，优化 API 请求流程
+- 实现错误处理机制，对钱包操作异常进行友好提示和降级处理
+- 使用 Ant Design 组件库快速构建用户界面，提升开发效率
+- 配置多环境部署方案，支持开发环境（3011端口）和生产环境（3012端口）独立运行
+
+---
+
+## 3. Jarvis
 **担任角色**：前端开发工程师  
 **项目周期**：2025.03-2025.11
 
@@ -15,7 +70,7 @@
 
 ---
 
-## 2. AI 拍照机
+## 4. AI 拍照机
 **担任角色**：前端开发工程师  
 **项目周期**：2024.07-2025.02
 
@@ -33,7 +88,7 @@
 
 ---
 
-## 3. 车库导航小程序
+## 5. 车库导航小程序
 **担任角色**：Uniapp 前端开发工程师  
 **项目周期**：2023.12-2024.07
 
@@ -51,7 +106,7 @@
 
 ---
 
-## 4. 部署工具 Pro
+## 6. 部署工具 Pro
 **担任角色**：前端开发工程师  
 **项目周期**：2022.06-2024.07
 
@@ -70,7 +125,7 @@
 
 ---
 
-## 5. tink（香港苏宁，三星门店 app）
+## 7. tink（香港苏宁，三星门店 app）
 **担任角色**：Android 开发工程师  
 **项目周期**：2021.01-2022.03
 
@@ -87,7 +142,7 @@
 
 ---
 
-## 6. Samsung App
+## 8. Samsung App
 **担任角色**：iOS 开发工程师  
 **项目周期**：2021.01-2022.03
 
@@ -107,7 +162,7 @@
 
 ---
 
-## 7. 苹果 MTA 手机自动回收机
+## 9. 苹果 MTA 手机自动回收机
 **担任角色**：Android 开发工程师  
 **项目周期**：2019.07-2021.12
 
@@ -126,7 +181,7 @@
 
 ---
 
-## 8. 大器管理（团队开发）
+## 10. 大器管理（团队开发）
 **担任角色**：iOS 开发工程师  
 **项目周期**：2018.03-2019.06
 
@@ -147,7 +202,7 @@
   
 ---
 
-## 9. 到喜啦
+## 11. 到喜啦
 **担任角色**：iOS 开发工程师  
 **项目周期**：2017.03-2018.01
 
@@ -166,7 +221,7 @@
 
 ---
 
-## 10. ANADA（独立开发）
+## 12. ANADA（独立开发）
 **担任角色**：iOS 开发工程师  
 **项目周期**：2015.10-2018.01
 
@@ -189,7 +244,7 @@
 
 ---
 
-## 11. 婚礼自由人
+## 13. 婚礼自由人
 **担任角色**：iOS 开发工程师  
 **项目周期**：2015.10-2018.01
 
@@ -207,7 +262,7 @@
 
 ---
 
-## 12. 大圣理财
+## 14. 大圣理财
 **担任角色**：iOS 开发工程师  
 **项目周期**：2015.03-2015.10
 
@@ -234,7 +289,62 @@
 
 # Project Experience (English)
 
-## 1. Jarvis
+## 1. Another Me
+**Role**: Android Engineer  
+**Duration**: 2025.03–2025.11
+
+**Project Overview**: Intelligent AI chat application on Android platform, integrating local AI model inference, multi-platform user authentication, subscription payment system, and social media sharing, delivering a secure, private, and feature-rich AI conversation experience.
+
+**Responsibilities**:
+- Project lead (team development)
+- Built core features including AI chat system, user authentication, payment subscriptions, social sharing, and 17 core Activity modules
+- Designed scalable architecture using Kotlin + MVVM design pattern, iterated and optimized for high maintainability
+- Authored development standards, code conventions, component descriptions, module boundaries, and method annotations
+- Supported QA with functional and performance testing to ensure quality and stability
+
+**Highlights**:
+- Built project from scratch; designed networking architecture with Retrofit + RxJava + OkHttp for robust and efficient network communications
+- Integrated Google MediaPipe LLM for local AI inference, implemented streaming response display, with automatic fallback to simulated responses when local models are unavailable
+- Integrated Google authentication system using the latest Credential Manager API, implemented local encrypted storage for user information and auto-login functionality
+- Integrated Stripe payment system using PaymentSheet for multi-tier subscriptions (Basic, Premium, Super Premium), with WebView payment as fallback option
+- Integrated Twitter, Facebook, and Kakao social media SDKs for multi-platform content sharing functionality
+- Developed gamification elements including Token mining system, leaderboard system, and referral rewards to enhance user engagement
+- Integrated Persona SDK for KYC identity verification functionality
+- Used ExoPlayer for video background playback and Glide for image lazy loading
+- Custom StackLayoutManager for card stacking animation effects, optimizing UI interaction experience
+- Performance optimization including memory, layout, and code optimization, ensuring 60fps smooth animation effects
+- Developed crash management utility classes, implemented startup optimization and weak-network optimization, providing support for other apps
+
+---
+
+## 2. RWA Frontend
+**Role**: Front-end Engineer  
+**Duration**: 2025.09–2025.11
+
+**Project Overview**: Decentralized application (DApp) built on Next.js, integrating Privy wallet connection, multi-chain network switching, token transfers, message signing, and other Web3 features, providing users with a complete blockchain interaction experience.
+
+**Responsibilities**:
+- Responsible for Web3 wallet integration and blockchain interaction functionality development
+- Designed and implemented core modules including wallet connection, network switching, and smart contract calls
+- Developed user authentication system based on wallet signature for decentralized login
+- Responsible for frontend architecture design, using React Hooks + Context pattern to manage application state
+- Configured deployment processes for development and production environments, using PM2 for process management
+
+**Highlights**:
+- Integrated Privy SDK to support multiple wallet connections, including mainstream wallets such as MetaMask and WalletConnect
+- Used ethers.js v6 to interact with Ethereum blockchain, implementing ERC-20 token contract calls for USDT, WBTC, POWER, etc.
+- Developed automatic network switching functionality to ensure users operate on the correct blockchain network
+- Implemented decentralized identity authentication based on wallet signature, generating random nonce to prevent replay attacks
+- Designed Token management mechanism, implementing local storage and automatic refresh of access tokens
+- Used TypeScript for type safety, combined with React Context for global state management
+- Configured Axios interceptors to automatically handle authentication tokens, optimizing API request flow
+- Implemented error handling mechanism, providing user-friendly prompts and fallback handling for wallet operation exceptions
+- Used Ant Design component library to quickly build user interfaces, improving development efficiency
+- Configured multi-environment deployment solution, supporting independent operation of development environment (port 3011) and production environment (port 3012)
+
+---
+
+## 3. Jarvis
 Role: Front-end Engineer  
 Duration: 2025.03–2025.11
 
@@ -248,7 +358,7 @@ Scope:
 
 ---
 
-## 2. AI Camera
+## 4. AI Camera
 Role: Front-end Engineer  
 Duration: 2024.07–2025.02
 
@@ -266,7 +376,7 @@ Highlights:
 
 ---
 
-## 3. Parking Garage Mini Program
+## 5. Parking Garage Mini Program
 Role: Uniapp Front-end Engineer  
 Duration: 2023.12–2024.07
 
@@ -283,7 +393,7 @@ Highlights:
 
 ---
 
-## 4. Deployment Tool Pro
+## 6. Deployment Tool Pro
 Role: Front-end Engineer  
 Duration: 2022.06–2024.07
 
@@ -299,7 +409,7 @@ Highlights:
 
 ---
 
-## 5. tink (Suning HK, Samsung Store App)
+## 7. tink (Suning HK, Samsung Store App)
 Role: Android Engineer  
 Duration: 2021.01–2022.03
 
@@ -315,7 +425,7 @@ Highlights:
 
 ---
 
-## 6. Samsung App
+## 8. Samsung App
 Role: iOS Engineer  
 Duration: 2021.01–2022.03
 
@@ -332,7 +442,7 @@ Highlights:
 
 ---
 
-## 7. Apple MTA Automated Phone Recycling Machine
+## 9. Apple MTA Automated Phone Recycling Machine
 Role: Android Engineer  
 Duration: 2019.07–2021.12
 
@@ -350,7 +460,7 @@ Highlights:
 
 ---
 
-## 8. Daqi Management (Team Development)
+## 10. Daqi Management (Team Development)
 Role: iOS Engineer  
 Duration: 2018.03–2019.06
 
@@ -369,7 +479,7 @@ Highlights:
 
 ---
 
-## 9. Daoxila
+## 11. Daoxila
 Role: iOS Engineer  
 Duration: 2017.03–2018.01
 
@@ -386,7 +496,7 @@ Highlights:
 
 ---
 
-## 10. ANADA (Indie Development)
+## 12. ANADA (Indie Development)
 Role: iOS Engineer  
 Duration: 2015.10–2018.01
 
@@ -406,7 +516,7 @@ Highlights:
 
 ---
 
-## 11. Wedding Freelancer
+## 13. Wedding Freelancer
 Role: iOS Engineer  
 Duration: 2015.10–2018.01
 
@@ -421,7 +531,7 @@ Highlights:
 
 ---
 
-## 12. Dasheng Finance
+## 14. Dasheng Finance
 Role: iOS Engineer  
 Duration: 2015.03–2015.10
 
