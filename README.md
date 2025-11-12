@@ -1,4 +1,3 @@
-# Martin Project
 # 项目经历
 
 ## 1. Another Me
@@ -67,6 +66,21 @@
 - 文件上传模块：设计并搭建文件上传模块，支持多平台文件的无缝上传。
 - 编写开发规范与代码规范：制定详细的开发规范，确保代码的可维护性和一致性。
 - 组件描述与模块划分：优化组件设计，实现模块化开发，提高项目的整体效率。
+
+## 技术要点
+
+- 从 0 到 1 搭建 iOS 项目并设计网络请求架构，采用 Alamofire + RxSwift + HandyJSON 框架实现高效稳定的网络通信，封装 JSApiClient 和 JSRequest 统一管理 API 请求
+- 集成讯飞实时语音识别 SDK (IflyRTASRManager)，实现音频流式转写功能，支持 16kHz 采样率 PCM 格式音频处理，集成 ASC 音频解码库实现音频格式转换
+- 开发 WebSocket + SSE 双通道实时通信方案，实现 AI 对话流式响应显示，支持断线重连和错误处理机制，确保实时交互的稳定性
+- 集成 CoreBluetooth 框架开发蓝牙设备管理系统 (BLEManager)，实现设备扫描、连接、数据传输等完整功能，支持设备状态实时监控和自动重连
+- 开发后台任务管理系统，使用 BGTaskScheduler 实现文件上传后台任务 (UploadManager)，支持后台音频播放和数据处理，确保应用在后台也能正常工作
+- 使用 RxSwift + RxCocoa + RxDataSources 实现响应式数据流管理，优化 TableView/CollectionView 数据绑定，提升列表滚动性能和用户体验
+- 开发日历集成系统 (CalendarManager)，实现日程创建、编辑、删除等功能，支持系统日历同步，提供自定义日期选择器组件
+- 自定义录音浮窗组件 (JarvisRecordView) 和悬浮按钮 (JarvisFloatingButton)，实现全局录音功能，支持拖拽、动画效果和状态管理
+- 使用 SnapKit 实现声明式 Auto Layout 布局，开发多个自定义 UI 组件（弹窗、日期选择器、错误提示等），提升代码可读性和开发效率
+- 使用 Kingfisher 实现图片异步加载和缓存管理，集成 GTMRefresh 实现下拉刷新功能，使用 IQKeyboardManager 自动处理键盘遮挡问题
+- 对应用进行性能优化，包括内存管理、布局优化、网络请求优化等，使用 LookinServer 进行 UI 层级调试，确保应用流畅运行
+- 开发通用工具类库 (JarvisUtils)，封装常用功能和扩展方法，实现代码复用，为项目提供统一的基础设施支持
 
 ---
 
@@ -225,6 +239,9 @@
 **担任角色**：iOS 开发工程师  
 **项目周期**：2015.10-2018.01
 
+**项目概述**：
+- 打造一款高质量的内容交流平台, 一个大型交友社区，国内专业, 海量视频, 全国活动, 高清图库, 社交平台, 在线商城.
+
 **个人职责**：
 - 与产品负责人即时沟通项目需求、功能实现
 - 每天总结当天的工作，记录相关问题，把控代码质量
@@ -345,16 +362,30 @@
 ---
 
 ## 3. Jarvis
-Role: Front-end Engineer  
-Duration: 2025.03–2025.11
+**Role**: Front-end Engineer  
+**Duration**: 2025.03–2025.11
 
-Scope:
+**Scope**:
 - Bluetooth Transfer Module: Designed and built stable and secure BLE data transfer.
 - AI Parsing Module: Implemented AI-powered audio parsing to extract meeting minutes and todos.
 - Audio Processing Module: Handled audio upload and processing to balance quality and throughput.
 - File Upload Module: Built a cross-platform file upload pipeline.
 - Engineering Standards: Authored development and code conventions to ensure maintainability.
 - Componentization: Refined component design and modularized features to improve delivery efficiency.
+
+**Highlights**:
+- Built iOS project from scratch and designed network request architecture, using Alamofire + RxSwift + HandyJSON framework for efficient and stable network communication, encapsulated JSApiClient and JSRequest for unified API request management
+- Integrated iFlytek real-time speech recognition SDK (IflyRTASRManager), implemented audio streaming transcription functionality, supporting 16kHz sample rate PCM format audio processing, integrated ASC audio decoding library for audio format conversion
+- Developed WebSocket + SSE dual-channel real-time communication solution, implemented AI conversation streaming response display, supporting reconnection and error handling mechanisms to ensure stability of real-time interactions
+- Integrated CoreBluetooth framework to develop Bluetooth device management system (BLEManager), implemented complete functionality including device scanning, connection, data transmission, supporting real-time device status monitoring and automatic reconnection
+- Developed background task management system, using BGTaskScheduler to implement file upload background tasks (UploadManager), supporting background audio playback and data processing, ensuring the app works normally in the background
+- Used RxSwift + RxCocoa + RxDataSources to implement reactive data flow management, optimized TableView/CollectionView data binding, improved list scrolling performance and user experience
+- Developed calendar integration system (CalendarManager), implemented schedule creation, editing, deletion and other functions, supporting system calendar synchronization, providing custom date picker components
+- Custom recording floating window component (JarvisRecordView) and floating button (JarvisFloatingButton), implemented global recording functionality, supporting drag, animation effects and state management
+- Used SnapKit to implement declarative Auto Layout, developed multiple custom UI components (popups, date pickers, error prompts, etc.), improved code readability and development efficiency
+- Used Kingfisher to implement asynchronous image loading and cache management, integrated GTMRefresh for pull-to-refresh functionality, used IQKeyboardManager to automatically handle keyboard occlusion issues
+- Performed application performance optimization, including memory management, layout optimization, network request optimization, etc., used LookinServer for UI hierarchy debugging, ensuring smooth application operation
+- Developed general utility library (JarvisUtils), encapsulated common functions and extension methods, implemented code reuse, providing unified infrastructure support for the project
 
 ---
 
@@ -368,7 +399,7 @@ Responsibilities:
 - Supported QA with functional and performance testing to ensure quality and stability.
 - Wrote development and code standards, component docs, module boundaries, and method annotations.
 
-Highlights:
+**Highlights**:
 - Built project from scratch; designed networking with Retrofit + OkHttp for robust communications.
 - Adopted Kotlin + MVVM.
 - Performance optimization: memory/layout/code. Collaborated with UI to refine UX; user satisfaction improved by ~20%.
@@ -377,15 +408,15 @@ Highlights:
 ---
 
 ## 5. Parking Garage Mini Program
-Role: Uniapp Front-end Engineer  
-Duration: 2023.12–2024.07
+**Role**: Uniapp Front-end Engineer  
+**Duration**: 2023.12–2024.07
 
-Responsibilities:
+**Responsibilities**:
 - Project lead (team development) using Uniapp.
 - Delivered underground navigation, reverse car finding, and parking reservation.
 - Authored development standards, code conventions, component descriptions, and module layout.
 
-Highlights:
+**Highlights**:
 - End-to-end Uniapp delivery from zero to production.
 - Integrated low-level Bluetooth operations for hardware control and deployment.
 - Indoor positioning: iOS via iBeacon; Android via Bluetooth.
@@ -394,15 +425,15 @@ Highlights:
 ---
 
 ## 6. Deployment Tool Pro
-Role: Front-end Engineer  
-Duration: 2022.06–2024.07
+**Role**: Front-end Engineer  
+**Duration**: 2022.06–2024.07
 
-Responsibilities:
+**Responsibilities**:
 - Project lead (team development).
 - Maintained the core Bluetooth library.
 - Assigned tasks to junior engineers; expanded new business modules; handled daily maintenance.
 
-Highlights:
+**Highlights**:
 - BLE-based device deployment.
 - Organized projects/rooms/groups to streamline device control.
 - Built and evolved the underlying BLE library; supported device customization.
@@ -410,14 +441,14 @@ Highlights:
 ---
 
 ## 7. tink (Suning HK, Samsung Store App)
-Role: Android Engineer  
-Duration: 2021.01–2022.03
+**Role**: Android Engineer  
+**Duration**: 2021.01–2022.03
 
-Responsibilities:
+**Responsibilities**:
 - Project lead (team development).
 - Greenfield Android architecture; continuous maintenance, iteration, version upgrades, and layout refactoring.
 
-Highlights:
+**Highlights**:
 - Networking with Retrofit.
 - App configuration via SharedPreferences.
 - Integrated ZBar for QR scanning (order booking, quotation).
@@ -426,15 +457,15 @@ Highlights:
 ---
 
 ## 8. Samsung App
-Role: iOS Engineer  
-Duration: 2021.01–2022.03
+**Role**: iOS Engineer  
+**Duration**: 2021.01–2022.03
 
-Responsibilities:
+**Responsibilities**:
 - Project lead (team development) for Samsung recycling machine app.
 - Iterative architecture improvements; API standards for higher readability of modules and utilities.
 - Authored development conventions and component/module docs.
 
-Highlights:
+**Highlights**:
 - Swift app from scratch; MVVM architecture.
 - Integrated in-house SDK for hardware control.
 - Data processing via hook-style interception.
@@ -443,16 +474,16 @@ Highlights:
 ---
 
 ## 9. Apple MTA Automated Phone Recycling Machine
-Role: Android Engineer  
-Duration: 2019.07–2021.12
+**Role**: Android Engineer  
+**Duration**: 2019.07–2021.12
 
-Overview:
+**Overview**:
 - Addressed growing demand for used phone recycling by delivering an automated MTA solution for efficient, high-quality service.
 
-Responsibilities:
+**Responsibilities**:
 - One of the Android leads; built the Apple recycling machine app; iterated and optimized architecture.
 
-Highlights:
+**Highlights**:
 - Full lifecycle Android delivery from zero to one.
 - Integrated custom SDK to operate MTA hardware.
 - Used RecyclerView with ViewHolder for SKU presentation.
@@ -461,14 +492,14 @@ Highlights:
 ---
 
 ## 10. Daqi Management (Team Development)
-Role: iOS Engineer  
-Duration: 2018.03–2019.06
+**Role**: iOS Engineer  
+**Duration**: 2018.03–2019.06
 
-Responsibilities:
+**Responsibilities**:
 - Team member; delivered device, reporting, project address, and smart device modules.
 - Iterative architecture improvements; implemented based on PRD and shipped frequent updates.
 
-Highlights:
+**Highlights**:
 - Evolved from 2.0 to 3.0 with a componentized architecture to improve efficiency.
 - Real-time device monitoring via Socket (anti-tilt alerts).
 - Applied runtime techniques to prevent crashes.
@@ -480,13 +511,13 @@ Highlights:
 ---
 
 ## 11. Daoxila
-Role: iOS Engineer  
-Duration: 2017.03–2018.01
+**Role**: iOS Engineer  
+**Duration**: 2017.03–2018.01
 
-Responsibilities:
+**Responsibilities**:
 - Project owner; responsible for delivery and handoff to product for operations; optimization, testing, and iterations per PRD.
 
-Highlights:
+**Highlights**:
 - Primarily Swift with Objective-C interop; system compatibility work.
 - Adaptive UI with Masonry and SnapKit.
 - Method swizzling with Runtime.
@@ -497,13 +528,13 @@ Highlights:
 ---
 
 ## 12. ANADA (Indie Development)
-Role: iOS Engineer  
-Duration: 2015.10–2018.01
+**Role**: iOS Engineer  
+**Duration**: 2015.10–2018.01
 
-Responsibilities:
+**Responsibilities**:
 - Communicated requirements in real time; daily summaries; quality control; App Store submission; optimization, testing, and iterations.
 
-Highlights:
+**Highlights**:
 - Swift + Objective-C mixed codebase with system compatibility.
 - Encapsulated Qiniu upload utilities.
 - AMap POI keyword search for nearby places.
@@ -517,13 +548,13 @@ Highlights:
 ---
 
 ## 13. Wedding Freelancer
-Role: iOS Engineer  
-Duration: 2015.10–2018.01
+**Role**: iOS Engineer  
+**Duration**: 2015.10–2018.01
 
-Responsibilities:
+**Responsibilities**:
 - Project owner; delivery and product-led operations; optimization, testing, iteration.
 
-Highlights:
+**Highlights**:
 - Pure Swift; adaptive UI with SnapKit.
 - System APIs for in-app rating and reviews.
 - FMDB for points/credits persistence.
@@ -532,13 +563,13 @@ Highlights:
 ---
 
 ## 14. Dasheng Finance
-Role: iOS Engineer  
-Duration: 2015.03–2015.10
+**Role**: iOS Engineer  
+**Duration**: 2015.03–2015.10
 
-Responsibilities:
+**Responsibilities**:
 - Project owner; led product requirement discussions; tracked progress; owned core modules (reviews, red packets, lists); App Store submission; bug fixes and optimization.
 
-Highlights:
+**Highlights**:
 - H5 integration and joint debugging; resolved login state consistency.
 - Persisted home/login/profile via local plist.
 - Gesture lock management and local sandbox storage.
