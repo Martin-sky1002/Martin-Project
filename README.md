@@ -1,64 +1,80 @@
 # 项目经历
 
-## 1. ZIEA 智能专注终端（Android）
-**担任角色**：Android 开发工程师  
+## 1. ZIEA 智能专注终端（Android 软硬件一体化）
+
+**担任角色**：Android 开发工程师 / 核心模块负责人  
 **项目周期**：2025.12–2026.09
 
-**项目概述**：基于 Android 的软硬件一体化智能终端应用，整合专注计时、AI 实时语音助手、日程管理，以及蓝牙、串口、GPIO 等硬件控制能力，为用户提供沉浸式专注体验。
+**项目概述**：从 0 到 1 完成一款面向桌面专注场景的 Android 智能终端，打通应用层、AWS 云服务与 STM32、蓝牙、串口、GPIO 等底层硬件，覆盖专注管理、AI 实时语音助手、日程、配网与 OTA 升级。项目累计约 179 次提交，稳定迭代至 `1.0.182`，核心代码约 4.5 万行 Java 和 1.2 千行 C。
 
 **个人职责**：
-- 负责 Focus 专注模式、AI 实时语音助手、硬件控制、账号认证与 OTA 等核心模块的开发与持续迭代
-- 主导 Focus 模式统一控制，实现物理按键禁用、语音唤醒停止、日程提醒拦截及状态持久化恢复
-- 完成 WebSocket 实时语音对话闭环，支持双 AI 引擎降级、断线重连、静音检测与资源释放
-- 通过 JNI/GPIO、串口协议控制底层硬件，并接入 AWS Cognito、AWS IoT、日志上传与静默升级
+
+- 负责 Focus 模式、AI 实时语音、硬件控制、账号认证、OTA 等核心模块的设计与持续迭代，推动应用层与硬件层协议落地
+- 设计统一的 Focus 状态管理中心，收敛物理按键、语音唤醒、日程提醒的禁用与恢复逻辑，实现状态持久化和应用重启恢复
+- 实现 WebSocket 实时语音全链路：音频采集、流式 ASR、AI 推理、TTS 播放，支持 Realtime/Standard 双引擎自动降级、断线重连和静音检测
+- 通过 JNI/GPIO 完成物理按键监控，通过串口协议控制 STM32，实现 WS2812 氛围灯、屏幕亮度与副屏动画调度
+- 优化鉴权与稳定性：Token 刷新并发去重、401 自动登出策略、弱网下语音线程与连接泄漏修复、日志上传和静默 OTA
+- 支持 10 种语言、多时区、12/24 小时制及日/周/月日程视图，处理设备直接断电、开机音量恢复等终端场景
 
 **技术要点**：
-- Java + Android 原生 UI + DataBinding，项目持续迭代至 `1.0.182`
-- 基于 WebSocket 实现「采集 → ASR → AI 推理 → TTS → 播放」实时语音全链路
-- 集成 Vosk 本地唤醒词，支持 Realtime/Standard 双引擎自动降级
-- 采用单例 + 监听器统一管理 Focus 状态，确保专注过程不受物理按键、唤醒和提醒打扰
-- 实现 JNI/GPIO 按键、串口 STM32 通信、WS2812 氛围灯与副屏动画调度
-- 接入 AWS Cognito 登录与 Token 刷新去重、AWS IoT MQTT、应用内静默 OTA
-- 处理多语言、多时区、线程安全、弱网连接和系统音量接管等稳定性问题
+
+- Android：Java、DataBinding、OkHttp WebSocket、Gson、前台服务
+- AI 语音：Vosk 本地唤醒词、AWS Transcribe、TTS，双引擎降级与超时状态机
+- 硬件通信：JNI/NDK、GPIO、USB/物理串口、STM32 协议、Bluetooth HID/BLE
+- 云服务：AWS Cognito OAuth2、AWS IoT Fleet Provisioning/MQTT、S3 日志上传
+- 工程能力：单例 + 监听器架构、状态持久化、线程安全、重连退避、多语言适配
 
 ---
 
-## 2. ZIEA
+## 2. ZIEA - 智能任务管理应用
+
 **担任角色**：Flutter 开发工程师（独立开发）  
-**项目周期**：2025.12–2026.09
+**项目周期**：2025.12 – 2026.09  
+**平台**：Flutter iOS / Android
 
-**项目概述**：基于 Flutter 开发的跨平台智能任务管理应用，集成 AI 助手、蓝牙设备连接、日历同步、订阅支付、数据洞察与游戏化等功能，帮助用户高效管理日常任务和日程，支持 iOS 和 Android 双平台。
+### 项目简介
 
-**个人职责**：
-- 项目负责人（独立开发）
-- 负责应用的核心功能开发，包括 AI 聊天、智能日程、蓝牙专注、日历同步、订阅支付、数据洞察与游戏化等核心模块
-- 设计良好的架构，采用 Flutter + Dart 开发，使用 ChangeNotifier / Stream 进行状态管理，分层清晰、易维护
-- 编写开发规范、代码规范、组件描述、模块划分、方法注解，提升协作与维护效率
-- 协助测试团队进行功能测试和性能测试，保证应用的质量和稳定性
+ZIEA 是一款面向个人效率与时间管理的跨平台智能任务管理应用，基于 Flutter 开发，已上线 App Store 和 Google Play。产品以任务与日程管理为核心，围绕用户的一天串联起 AI 智能助手、多平台日历同步、蓝牙硬件联动与专注体验，并通过数据洞察与盲盒图鉴等轻游戏化机制提升用户活跃与留存。核心能力包括：支持 RRULE 重复任务与周/月视图的智能日程、基于 WebSocket 的实时 AI 对话与语音输入、Google / Outlook / iCloud 日历双向同步、与 Ziea 蓝牙硬件联动的专注模式及系统勿扰同步，以及 Pro / Ultra 双档订阅变现。应用采用分层架构与 Drift 本地数据库保障离线可用，接入 AWS Cognito 完成多端认证，并实现 10 种语言国际化。
 
-**技术要点**：
-- 从 0 到 1 搭建 Flutter 项目并设计网络请求架构，采用 HTTP + WebSocket 实现高效稳定的网络通信
-- 集成 WebSocket 实现 AI 助手实时流式响应，支持语音转文字输入、断线重连与超时容错
-- 实现智能日程核心功能，包括重复任务（RRULE）、周/月视图、事件重叠智能布局与本地离线缓存
-- 集成 Google Calendar、Outlook、iCloud 日历同步，支持事件导入和双向同步
-- 集成 AWS Cognito 认证系统，支持 Google / Apple / 邮箱 / 二维码多端登录，实现 JWT Token 安全存储与静默刷新
-- 集成 RevenueCat 支付系统，使用 purchases_flutter SDK 实现 Pro / Ultra 双档订阅（月/年套餐），支持 IAP 管理与购买记录持久化
-- 集成蓝牙低功耗（BLE）设备连接，使用 universal_ble 实现与 Ziead 硬件设备的通信，支持专注模式自动触发与系统 DND 同步
-- 开发数据洞察与游戏化模块，包括专注统计、能量趋势、核心评分、盲盒图鉴与开盒动画
-- 使用 Drift（SQLite）实现本地数据库，支持离线数据缓存和快速查询
-- 开发多语言国际化系统，支持英文、中文（简体/繁体）、日文、韩文、法文、德文、西班牙文、意大利文、葡萄牙文等 10 种语言
-- 自定义图表组件实现专注度趋势分析、能量趋势可视化等数据展示
-- 开发 Focus 模式功能，结合蓝牙设备实现专注计时和数据分析
+### 核心工作
+
+**架构设计与开发**
+
+- 从 0 到 1 搭建 Flutter 项目架构，采用分层设计（Entity-DB-Service-Page），使用 ChangeNotifier/Stream 状态管理
+- 设计 HTTP + WebSocket 双协议网络架构，实现高效稳定的数据通信
+
+**核心功能实现**
+
+- **AI 助手**：集成 WebSocket 实现实时流式响应，支持语音输入、断线重连与超时容错
+- **智能日程**：实现 RRULE 重复任务解析、周/月视图切换、事件重叠智能布局算法
+- **日历同步**：集成 Google Calendar、Outlook、iCloud 三大平台，支持 OAuth 2.0 授权和双向同步
+- **用户认证**：集成 AWS Cognito，支持 Google/Apple/邮箱/QR 码多端登录，实现 JWT Token 安全管理
+- **订阅支付**：集成 RevenueCat SDK，实现 Pro/Ultra 双档订阅，满足 Google Play Billing Library 8+ 要求
+- **蓝牙通信**：使用 universal_ble 实现 BLE 设备连接，支持专注模式与系统勿扰同步
+- **数据洞察**：开发专注统计、趋势分析、游戏化系统（盲盒图鉴、开盒动画）
+
+**技术优化**
+
+- 使用 Drift (SQLite) 实现本地数据库，支持离线缓存和快速查询
+- 完成 Isar 到 Drift 的数据库迁移，满足 Google Play 政策要求
+- 开发多语言国际化系统，支持 10 种语言
+- 自定义图表组件实现数据可视化
+
+### 技术栈
+
+Flutter, Dart, WebSocket, SQLite, AWS Cognito, RevenueCat, BLE, OAuth 2.0
 
 ---
 
 ## 3. Another Me
+
 **担任角色**：前端开发工程师  
 **项目周期**：2025.03-2025.11
 
 **项目概述**：基于 Android 平台的智能 AI 聊天应用，集成本地 AI 模型推理、多平台用户认证、订阅支付系统、社交媒体分享等功能，为用户提供安全、私密且功能丰富的 AI 对话体验。
 
 **个人职责**：
+
 - 项目负责人（团队开发）
 - 负责应用的核心功能开发，包括 AI 聊天系统、用户认证、支付订阅、社交分享等 17 个核心 Activity 模块
 - 设计良好的架构，采用 Kotlin + MVVM 设计模式，不断迭代优化，维护效率高
@@ -66,6 +82,7 @@
 - 协助测试团队进行功能测试和性能测试，保证应用的质量和稳定性
 
 **技术要点**：
+
 - 从 0 到 1 搭建项目并设计网络请求架构，采用 Retrofit + RxJava + OkHttp 框架实现高效稳定的网络通信
 - 集成 Google MediaPipe LLM 进行本地 AI 推理，实现流式响应显示，当本地模型不可用时自动切换到模拟响应模式
 - 集成 Google 登录认证系统，使用最新的 Credential Manager API，实现用户信息的本地加密存储和自动登录
@@ -81,6 +98,7 @@
 ---
 
 ## 4. Another Me - 去中心化 AI 算力共享平台 官网
+
 **担任角色**：前端开发工程师  
 **项目周期**：2025.03-2025.11
 
@@ -88,12 +106,14 @@
 去中心化 AI 算力共享平台官网，通过可视化方式展示"激活闲置设备算力，实现被动收益"的产品理念，为用户提供沉浸式的交互体验和产品教育。
 
 **个人职责**：
+
 - 负责前端架构设计，采用 React + MobX 构建单页应用
 - 设计并实现复杂滚动动画和交互效果，提升用户体验
 - 开发智能导航系统，实现滚动方向感知和区域激活状态管理
 - 配置 Docker + Nginx 生产环境部署流程，优化静态资源加载性能
 
 **技术要点**：
+
 - 使用 React 19 + React Router 7 构建多页面路由系统
 - 集成 GSAP + ScrollTrigger 实现滚动视差、文字粒子、方向感知按钮等复杂动画
 - 使用 Lottie 动画库加载 10+ 个高质量矢量动画，提升视觉吸引力
@@ -107,12 +127,14 @@
 ---
 
 ## 5. RWA Frontend
+
 **担任角色**：前端开发工程师  
 **项目周期**：2025.09-2025.11
 
 **项目概述**：基于 Next.js 构建的去中心化应用（DApp），集成 Privy 钱包连接、多链网络切换、代币转账、消息签名等 Web3 功能，为用户提供完整的区块链交互体验。
 
 **个人职责**：
+
 - 负责 Web3 钱包集成和区块链交互功能开发
 - 设计并实现钱包连接、网络切换、智能合约调用等核心模块
 - 开发用户认证系统，基于钱包签名实现去中心化登录
@@ -120,6 +142,7 @@
 - 配置开发和生产环境的部署流程，使用 PM2 进行进程管理
 
 **技术要点**：
+
 - 集成 Privy SDK 实现多钱包连接支持，包括 MetaMask、WalletConnect 等主流钱包
 - 使用 ethers.js v6 与以太坊区块链交互，实现 USDT、WBTC、POWER 等 ERC-20 代币合约调用
 - 开发自动网络切换功能，确保用户在正确的区块链网络上进行操作
@@ -129,15 +152,17 @@
 - 配置 Axios 拦截器自动处理认证 Token，优化 API 请求流程
 - 实现错误处理机制，对钱包操作异常进行友好提示和降级处理
 - 使用 Ant Design 组件库快速构建用户界面，提升开发效率
-- 配置多环境部署方案，支持开发环境（3011端口）和生产环境（3012端口）独立运行
+- 配置多环境部署方案，支持开发环境（3011 端口）和生产环境（3012 端口）独立运行
 
 ---
 
 ## 6. Jarvis
+
 **担任角色**：前端开发工程师  
 **项目周期**：2025.03-2025.11
 
 **项目内容**：
+
 - 蓝牙传输模块：设计并搭建蓝牙传输功能，确保数据传输的稳定性和安全性。
 - AI 解析模块：开发 AI 解析功能，实现音频内容的智能解析，识别会议纪要和待办事项。
 - 音频处理模块：负责音频文件的上传与处理，确保音质和传输效率。
@@ -163,16 +188,19 @@
 ---
 
 ## 7. AI 拍照机
+
 **担任角色**：前端开发工程师  
 **项目周期**：2024.07-2025.02
 
 **个人职责**：
+
 - 项目负责人（团队开发）
 - 负责应用的核心功能开发，如拍照功能、图片处理、图像展示等，设计良好的架构，不断迭代优化，维护效率高
 - 协助测试团队进行功能测试和性能测试，保证应用的质量和稳定性
 - 编写开发规范、代码规范、组件的描述、模块划分、方法注解
 
 **技术要点**：
+
 - 从 0 到 1 搭建项目并设计网络请求架构，采用 Retrofit 和 OkHttp 框架实现高效稳定的网络通信
 - 采用 Kotlin + MVVM 的设计模式设计框架
 - 对应用进行性能优化，包括内存优化、布局优化、代码优化等；参与应用的界面设计和交互优化，与 UI 设计师紧密合作，根据用户反馈对界面进行多次调整，提高了应用的易用性和美观度，用户满意度提升了 20%
@@ -181,16 +209,19 @@
 ---
 
 ## 8. 车库导航小程序
+
 **担任角色**：Uniapp 前端开发工程师  
 **项目周期**：2023.12-2024.07
 
 **个人职责**：
+
 - 项目负责人（团队开发）
 - 本项目采用 UniApp 开发
 - 负责地下车库导航、反向寻车、车库预约功能开发
 - 编写开发规范、代码规范、组件的描述、模块划分
 
 **技术要点**：
+
 - Uniapp 开发的应用，从零到一的开发过程
 - 集成底层蓝牙模块，实现对硬件的操作和部署
 - iOS 采用 iBeacon，Android 采用蓝牙来定位当前位置
@@ -199,10 +230,12 @@
 ---
 
 ## 9. 部署工具 Pro
+
 **担任角色**：前端开发工程师  
 **项目周期**：2022.06-2024.07
 
 **个人职责**：
+
 - 项目负责人（团队开发）
 - 维护底层蓝牙库
 - 按需求分派任务给初级开发工程师
@@ -210,6 +243,7 @@
 - 日常维护
 
 **技术要点**：
+
 - 通过蓝牙部署蓝牙设备
 - 添加项目、房间、蓝牙组来方便操控蓝牙设备
 - 底层蓝牙库的开发
@@ -218,15 +252,18 @@
 ---
 
 ## 10. tink（香港苏宁，三星门店 app）
+
 **担任角色**：Android 开发工程师  
 **项目周期**：2021.01-2022.03
 
 **个人职责**：
+
 - 项目负责人（团队开发）
 - 从零到一项目，尝试搭建 Android 架构
 - 日常维护、迭代版本、升级版本、重构项目布局
 
 **技术要点**：
+
 - 使用 Retrofit 网络请求数据
 - SharedPreferences 存储应用的各种配置信息
 - 集成 ZBar 的二维码扫描预约订单、报价功能
@@ -235,10 +272,12 @@
 ---
 
 ## 11. Samsung App
+
 **担任角色**：iOS 开发工程师  
 **项目周期**：2021.01-2022.03
 
 **个人职责**：
+
 - 项目负责人（团队开发）
 - 负责 Samsung 回收机应用开发
 - 设计良好的架构，不断迭代优化
@@ -246,6 +285,7 @@
 - 编写开发规范、代码规范、组件的描述、模块划分
 
 **技术要点**：
+
 - Swift 开发的应用，从零到一的开发过程
 - 采用 MVVM 设计模式搭建框架
 - 集成创新研发的 SDK，实现对硬件的操作
@@ -255,17 +295,20 @@
 ---
 
 ## 12. 苹果 MTA 手机自动回收机
+
 **担任角色**：Android 开发工程师  
 **项目周期**：2019.07-2021.12
 
 **项目概述**：随着电子设备更新换代速度加快，废旧手机回收处理需求日益增长。为提高回收效率和服务质量，开发 MTA 手机自动回收机，为用户提供便捷的手机回收服务。
 
 **个人职责**：
+
 - Android 项目负责人之一
 - 负责苹果回收机应用开发
 - 设计良好的架构，不断迭代优化
 
 **技术要点**：
+
 - 深入了解 Android 开发，完成从零到一的应用开发过程
 - 集成创新研发的 SDK，实现对 MTA 机器硬件的操作
 - 使用 RecyclerView 展示 SKU 选项，并使用 ViewHolder 复用机制
@@ -274,16 +317,19 @@
 ---
 
 ## 13. 大器管理（团队开发）
+
 **担任角色**：iOS 开发工程师  
 **项目周期**：2018.03-2019.06
 
 **个人职责**：
+
 - 项目小组成员
 - 负责设备模块、汇报模块、项目地址、智能设备模块的开发
 - 设计良好的架构，不断迭代优化
 - 根据需求文档进行项目优化，提交测试，迭代更新版本
 
 **技术要点**：
+
 - 本项目从 2.0 进化到 3.0，并在 3.0 采用组件化的方式进行开发，高效提升工作与维护效率
 - 使用 Socket 对设备进行实时监控 / 防倾斜预警
 - 善于用项目开发中的小技巧、交换方法来避免线上出现崩溃现象
@@ -291,19 +337,22 @@
 - 模仿 CTMediator 采用 KVC + 创建动态类的方法实现模块之间的通信
 - 利用 MVVM + RAC 的模式高效完成模块开发
 - 使用 Instrument 常用工具进行性能调优
-  
+
 ---
 
 ## 14. 到喜啦
+
 **担任角色**：iOS 开发工程师  
 **项目周期**：2017.03-2018.01
 
 **个人职责**：
+
 - 本项目负责人
 - 负责上传，后续操作由产品负责
 - 根据需求文档进行项目优化，提交测试，迭代更新版本
 
 **技术要点**：
+
 - 以 Swift 为主，以 Objective-C 为辅完成此项目，并做系统适配
 - 使用 Masonry 和 Snapkit 适配所有机型
 - 使用 Runtime 的特性对系统方法进行交换
@@ -314,19 +363,23 @@
 ---
 
 ## 15. ANADA（独立开发）
+
 **担任角色**：iOS 开发工程师  
 **项目周期**：2015.10-2018.01
 
 **项目概述**：
+
 - 打造一款高质量的内容交流平台, 一个大型交友社区，国内专业, 海量视频, 全国活动, 高清图库, 社交平台, 在线商城.
 
 **个人职责**：
+
 - 与产品负责人即时沟通项目需求、功能实现
 - 每天总结当天的工作，记录相关问题，把控代码质量
 - 负责上传至 App Store 等程序
 - 完成项目优化、测试、迭代更新版本
 
 **技术要点**：
+
 - 使用 Swift 与 Objective-C 混写完成此项目，并做系统适配
 - 封装七牛云的方法，实现文件上传的功能类
 - 使用高德地图的 POI 关键字搜索，获取附近的地理位置
@@ -340,15 +393,18 @@
 ---
 
 ## 16. 婚礼自由人
+
 **担任角色**：iOS 开发工程师  
 **项目周期**：2015.10-2018.01
 
 **个人职责**：
+
 - 本项目负责人
 - 负责上传，后续操作由产品负责
 - 根据需求文档进行项目优化，提交测试，迭代更新版本
 
 **技术要点**：
+
 - 纯 Swift 开发
 - 使用 SnapKit 适配所有机型
 - 使用系统 API 进行应用内评分、撰写评论等功能
@@ -358,10 +414,12 @@
 ---
 
 ## 17. 大圣理财
+
 **担任角色**：iOS 开发工程师  
 **项目周期**：2015.03-2015.10
 
 **个人职责**：
+
 - 本项目负责人
 - 负责组织产品需求的沟通、讨论和协调工作
 - 总结问题，记录项目进度
@@ -370,6 +428,7 @@
 - 负责解决测试组提交的 BUG，完成优化任务，并对项目进行维护
 
 **技术要点**：
+
 - 与 HTML5 进行对接并联调，解决登录状态一致问题
 - 读取本地 plist 文件，实现首页、登录、个人中心页面的数据持久化
 - 手势密码进行对用户手势密码开关的管理
@@ -384,36 +443,41 @@
 
 # Project Experience (English)
 
-## 1. ZIEAD Smart Focus Terminal (Android)
-**Role**: Android Engineer  
+## 1. ZIEA Smart Focus Terminal (Android Hardware-Software Integration)
+
+**Role**: Android Engineer / Core Module Lead  
 **Duration**: 2025.12–2026.09
 
-**Project Overview**: Android-based hardware-software integrated smart terminal app, combining focus timing, real-time AI voice assistant, schedule management, and hardware control over Bluetooth, serial, and GPIO, delivering an immersive focus experience.
+**Project Overview**: Built an Android smart terminal for desktop focus scenarios from scratch, connecting the application layer, AWS cloud services, and low-level hardware including STM32, Bluetooth, serial, and GPIO, covering focus management, real-time AI voice assistant, scheduling, network provisioning, and OTA upgrades. The project accumulated approximately 179 commits, iterated steadily to `1.0.182`, with about 45,000 lines of Java and 1,200 lines of C in the core codebase.
 
 **Responsibilities**:
-- Led development and continuous iteration of core modules including Focus mode, real-time AI voice assistant, hardware control, account authentication, and OTA
-- Unified Focus mode control: disabled physical buttons, voice wake-up stop, schedule reminder blocking, and persistent state recovery
-- Built a complete real-time WebSocket voice conversation loop with dual AI engine fallback, reconnection, silence detection, and resource release
-- Controlled low-level hardware through JNI/GPIO and serial protocols; integrated AWS Cognito, AWS IoT, log upload, and silent upgrades
+
+- Designed and continuously iterated core modules including Focus mode, real-time AI voice, hardware control, account authentication, and OTA, driving protocol implementation between application and hardware layers
+- Designed a unified Focus state management center, consolidating disable/enable logic for physical buttons, voice wake-up, and schedule reminders, with state persistence and recovery after app restart
+- Implemented a complete real-time WebSocket voice pipeline: audio capture, streaming ASR, AI inference, and TTS playback, with automatic Realtime/Standard dual-engine fallback, reconnection, and silence detection
+- Monitored physical buttons via JNI/GPIO and controlled STM32 through serial protocols, implementing WS2812 ambient lighting, screen brightness, and secondary-screen animation scheduling
+- Improved authentication and stability: concurrent token refresh deduplication, automatic logout on 401, fixes for voice thread and connection leaks under weak networks, log upload, and silent OTA
+- Supported 10 languages, multiple time zones, 12/24-hour formats, and daily/weekly/monthly schedule views; handled terminal scenarios such as direct power loss and startup volume restoration
 
 **Highlights**:
-- Java + native Android UI + DataBinding, iterated to `1.0.182`
-- Implemented the full real-time voice pipeline `capture → ASR → AI inference → TTS → playback` over WebSocket
-- Integrated Vosk local wake-word detection with automatic fallback between Realtime and Standard engines
-- Managed Focus state with singleton + listeners to keep focus sessions uninterrupted by physical buttons, wake-ups, and reminders
-- Implemented JNI/GPIO buttons, STM32 serial communication, WS2812 ambient lighting, and secondary-screen animation scheduling
-- Integrated AWS Cognito sign-in with token refresh deduplication, AWS IoT MQTT, and in-app silent OTA
-- Handled stability concerns including multilingual support, multiple time zones, thread safety, weak-network connectivity, and system volume takeover
+
+- Android: Java, DataBinding, OkHttp WebSocket, Gson, foreground services
+- AI Voice: Vosk local wake word, AWS Transcribe, TTS, dual-engine fallback and timeout state machine
+- Hardware Communication: JNI/NDK, GPIO, USB/physical serial, STM32 protocol, Bluetooth HID/BLE
+- Cloud Services: AWS Cognito OAuth2, AWS IoT Fleet Provisioning/MQTT, S3 log upload
+- Engineering: singleton + listener architecture, state persistence, thread safety, reconnect backoff, and multilingual adaptation
 
 ---
 
 ## 2. ZIEA
+
 **Role**: Flutter Engineer (Indie Development)  
 **Duration**: 2025.12–2026.09
 
 **Project Overview**: Cross-platform intelligent task management app built with Flutter, integrating AI assistant, Bluetooth device connectivity, calendar sync, subscription payments, data insights, and gamification to help users efficiently manage daily tasks and schedules, supporting both iOS and Android.
 
 **Responsibilities**:
+
 - Project lead (indie development)
 - Built core features including AI chat, smart scheduling, Bluetooth focus, calendar sync, subscription payments, data insights, and gamification
 - Designed a clean, layered architecture with Flutter + Dart using ChangeNotifier / Stream for state management
@@ -421,6 +485,7 @@
 - Supported QA with functional and performance testing to ensure quality and stability
 
 **Highlights**:
+
 - Built Flutter project from scratch and designed network request architecture with HTTP + WebSocket for efficient, stable communication
 - Integrated WebSocket for real-time streaming AI assistant responses, with speech-to-text input, reconnection, and timeout handling
 - Implemented core smart scheduling features including recurring tasks (RRULE), weekly/monthly views, smart overlapping event layout, and local offline caching
@@ -437,12 +502,14 @@
 ---
 
 ## 3. Another Me
+
 **Role**: Android Engineer  
 **Duration**: 2025.03–2025.11
 
 **Project Overview**: Intelligent AI chat application on Android platform, integrating local AI model inference, multi-platform user authentication, subscription payment system, and social media sharing, delivering a secure, private, and feature-rich AI conversation experience.
 
 **Responsibilities**:
+
 - Project lead (team development)
 - Built core features including AI chat system, user authentication, payment subscriptions, social sharing, and 17 core Activity modules
 - Designed scalable architecture using Kotlin + MVVM design pattern, iterated and optimized for high maintainability
@@ -450,6 +517,7 @@
 - Supported QA with functional and performance testing to ensure quality and stability
 
 **Highlights**:
+
 - Built project from scratch; designed networking architecture with Retrofit + RxJava + OkHttp for robust and efficient network communications
 - Integrated Google MediaPipe LLM for local AI inference, implemented streaming response display, with automatic fallback to simulated responses when local models are unavailable
 - Integrated Google authentication system using the latest Credential Manager API, implemented local encrypted storage for user information and auto-login functionality
@@ -465,6 +533,7 @@
 ---
 
 ## 4. Another Me - Decentralized AI Computing Power Sharing Platform Website
+
 **Role**: Front-end Engineer  
 **Duration**: 2025.03–2025.11
 
@@ -472,12 +541,14 @@
 Official website for a decentralized AI computing power sharing platform, visualizing the concept of "activating idle device computing power to achieve passive income," providing users with an immersive interactive experience and product education.
 
 **Responsibilities**:
+
 - Responsible for frontend architecture design, building single-page application with React + MobX
 - Designed and implemented complex scroll animations and interactive effects to enhance user experience
 - Developed intelligent navigation system with scroll direction awareness and section activation state management
 - Configured Docker + Nginx production environment deployment process, optimized static resource loading performance
 
 **Highlights**:
+
 - Built multi-page routing system with React 19 + React Router 7
 - Integrated GSAP + ScrollTrigger for complex animations including scroll parallax, text particles, and direction-aware buttons
 - Used Lottie animation library to load 10+ high-quality vector animations, enhancing visual appeal
@@ -491,12 +562,14 @@ Official website for a decentralized AI computing power sharing platform, visual
 ---
 
 ## 5. RWA Frontend
+
 **Role**: Front-end Engineer  
 **Duration**: 2025.09–2025.11
 
 **Project Overview**: Decentralized application (DApp) built on Next.js, integrating Privy wallet connection, multi-chain network switching, token transfers, message signing, and other Web3 features, providing users with a complete blockchain interaction experience.
 
 **Responsibilities**:
+
 - Responsible for Web3 wallet integration and blockchain interaction functionality development
 - Designed and implemented core modules including wallet connection, network switching, and smart contract calls
 - Developed user authentication system based on wallet signature for decentralized login
@@ -504,6 +577,7 @@ Official website for a decentralized AI computing power sharing platform, visual
 - Configured deployment processes for development and production environments, using PM2 for process management
 
 **Highlights**:
+
 - Integrated Privy SDK to support multiple wallet connections, including mainstream wallets such as MetaMask and WalletConnect
 - Used ethers.js v6 to interact with Ethereum blockchain, implementing ERC-20 token contract calls for USDT, WBTC, POWER, etc.
 - Developed automatic network switching functionality to ensure users operate on the correct blockchain network
@@ -518,10 +592,12 @@ Official website for a decentralized AI computing power sharing platform, visual
 ---
 
 ## 6. Jarvis
+
 **Role**: Front-end Engineer  
 **Duration**: 2025.03–2025.11
 
 **Scope**:
+
 - Bluetooth Transfer Module: Designed and built stable and secure BLE data transfer.
 - AI Parsing Module: Implemented AI-powered audio parsing to extract meeting minutes and todos.
 - Audio Processing Module: Handled audio upload and processing to balance quality and throughput.
@@ -530,6 +606,7 @@ Official website for a decentralized AI computing power sharing platform, visual
 - Componentization: Refined component design and modularized features to improve delivery efficiency.
 
 **Highlights**:
+
 - Built iOS project from scratch and designed network request architecture, using Alamofire + RxSwift + HandyJSON framework for efficient and stable network communication, encapsulated JSApiClient and JSRequest for unified API request management
 - Integrated iFlytek real-time speech recognition SDK (IflyRTASRManager), implemented audio streaming transcription functionality, supporting 16kHz sample rate PCM format audio processing, integrated ASC audio decoding library for audio format conversion
 - Developed WebSocket + SSE dual-channel real-time communication solution, implemented AI conversation streaming response display, supporting reconnection and error handling mechanisms to ensure stability of real-time interactions
@@ -546,16 +623,19 @@ Official website for a decentralized AI computing power sharing platform, visual
 ---
 
 ## 7. AI Camera
+
 **Role**: Front-end Engineer  
 **Duration**: 2024.07–2025.02
 
 Responsibilities:
+
 - Project lead (team development).
 - Built core features including capture, image processing, and gallery; designed scalable architecture and iterated for maintainability.
 - Supported QA with functional and performance testing to ensure quality and stability.
 - Wrote development and code standards, component docs, module boundaries, and method annotations.
 
 **Highlights**:
+
 - Built project from scratch; designed networking with Retrofit + OkHttp for robust communications.
 - Adopted Kotlin + MVVM.
 - Performance optimization: memory/layout/code. Collaborated with UI to refine UX; user satisfaction improved by ~20%.
@@ -564,15 +644,18 @@ Responsibilities:
 ---
 
 ## 8. Parking Garage Mini Program
+
 **Role**: Uniapp Front-end Engineer  
 **Duration**: 2023.12–2024.07
 
 **Responsibilities**:
+
 - Project lead (team development) using Uniapp.
 - Delivered underground navigation, reverse car finding, and parking reservation.
 - Authored development standards, code conventions, component descriptions, and module layout.
 
 **Highlights**:
+
 - End-to-end Uniapp delivery from zero to production.
 - Integrated low-level Bluetooth operations for hardware control and deployment.
 - Indoor positioning: iOS via iBeacon; Android via Bluetooth.
@@ -581,15 +664,18 @@ Responsibilities:
 ---
 
 ## 9. Deployment Tool Pro
+
 **Role**: Front-end Engineer  
 **Duration**: 2022.06–2024.07
 
 **Responsibilities**:
+
 - Project lead (team development).
 - Maintained the core Bluetooth library.
 - Assigned tasks to junior engineers; expanded new business modules; handled daily maintenance.
 
 **Highlights**:
+
 - BLE-based device deployment.
 - Organized projects/rooms/groups to streamline device control.
 - Built and evolved the underlying BLE library; supported device customization.
@@ -597,14 +683,17 @@ Responsibilities:
 ---
 
 ## 10. tink (Suning HK, Samsung Store App)
+
 **Role**: Android Engineer  
 **Duration**: 2021.01–2022.03
 
 **Responsibilities**:
+
 - Project lead (team development).
 - Greenfield Android architecture; continuous maintenance, iteration, version upgrades, and layout refactoring.
 
 **Highlights**:
+
 - Networking with Retrofit.
 - App configuration via SharedPreferences.
 - Integrated ZBar for QR scanning (order booking, quotation).
@@ -613,15 +702,18 @@ Responsibilities:
 ---
 
 ## 11. Samsung App
+
 **Role**: iOS Engineer  
 **Duration**: 2021.01–2022.03
 
 **Responsibilities**:
+
 - Project lead (team development) for Samsung recycling machine app.
 - Iterative architecture improvements; API standards for higher readability of modules and utilities.
 - Authored development conventions and component/module docs.
 
 **Highlights**:
+
 - Swift app from scratch; MVVM architecture.
 - Integrated in-house SDK for hardware control.
 - Data processing via hook-style interception.
@@ -630,16 +722,20 @@ Responsibilities:
 ---
 
 ## 12. Apple MTA Automated Phone Recycling Machine
+
 **Role**: Android Engineer  
 **Duration**: 2019.07–2021.12
 
 **Overview**:
+
 - Addressed growing demand for used phone recycling by delivering an automated MTA solution for efficient, high-quality service.
 
 **Responsibilities**:
+
 - One of the Android leads; built the Apple recycling machine app; iterated and optimized architecture.
 
 **Highlights**:
+
 - Full lifecycle Android delivery from zero to one.
 - Integrated custom SDK to operate MTA hardware.
 - Used RecyclerView with ViewHolder for SKU presentation.
@@ -648,14 +744,17 @@ Responsibilities:
 ---
 
 ## 13. Daqi Management (Team Development)
+
 **Role**: iOS Engineer  
 **Duration**: 2018.03–2019.06
 
 **Responsibilities**:
+
 - Team member; delivered device, reporting, project address, and smart device modules.
 - Iterative architecture improvements; implemented based on PRD and shipped frequent updates.
 
 **Highlights**:
+
 - Evolved from 2.0 to 3.0 with a componentized architecture to improve efficiency.
 - Real-time device monitoring via Socket (anti-tilt alerts).
 - Applied runtime techniques to prevent crashes.
@@ -667,13 +766,16 @@ Responsibilities:
 ---
 
 ## 14. Daoxila
+
 **Role**: iOS Engineer  
 **Duration**: 2017.03–2018.01
 
 **Responsibilities**:
+
 - Project owner; responsible for delivery and handoff to product for operations; optimization, testing, and iterations per PRD.
 
 **Highlights**:
+
 - Primarily Swift with Objective-C interop; system compatibility work.
 - Adaptive UI with Masonry and SnapKit.
 - Method swizzling with Runtime.
@@ -684,13 +786,16 @@ Responsibilities:
 ---
 
 ## 15. ANADA (Indie Development)
+
 **Role**: iOS Engineer  
 **Duration**: 2015.10–2018.01
 
 **Responsibilities**:
+
 - Communicated requirements in real time; daily summaries; quality control; App Store submission; optimization, testing, and iterations.
 
 **Highlights**:
+
 - Swift + Objective-C mixed codebase with system compatibility.
 - Encapsulated Qiniu upload utilities.
 - AMap POI keyword search for nearby places.
@@ -704,13 +809,16 @@ Responsibilities:
 ---
 
 ## 16. Wedding Freelancer
+
 **Role**: iOS Engineer  
 **Duration**: 2015.10–2018.01
 
 **Responsibilities**:
+
 - Project owner; delivery and product-led operations; optimization, testing, iteration.
 
 **Highlights**:
+
 - Pure Swift; adaptive UI with SnapKit.
 - System APIs for in-app rating and reviews.
 - FMDB for points/credits persistence.
@@ -719,13 +827,16 @@ Responsibilities:
 ---
 
 ## 17. Dasheng Finance
+
 **Role**: iOS Engineer  
 **Duration**: 2015.03–2015.10
 
 **Responsibilities**:
+
 - Project owner; led product requirement discussions; tracked progress; owned core modules (reviews, red packets, lists); App Store submission; bug fixes and optimization.
 
 **Highlights**:
+
 - H5 integration and joint debugging; resolved login state consistency.
 - Persisted home/login/profile via local plist.
 - Gesture lock management and local sandbox storage.
