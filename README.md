@@ -1,6 +1,58 @@
 # 项目经历
 
-## 1. Another Me
+## 1. ZIEAD 智能专注终端（Android）
+**担任角色**：Android 开发工程师  
+**项目周期**：2025.12–2026.09
+
+**项目概述**：基于 Android 的软硬件一体化智能终端应用，整合专注计时、AI 实时语音助手、日程管理，以及蓝牙、串口、GPIO 等硬件控制能力，为用户提供沉浸式专注体验。
+
+**个人职责**：
+- 负责 Focus 专注模式、AI 实时语音助手、硬件控制、账号认证与 OTA 等核心模块的开发与持续迭代
+- 主导 Focus 模式统一控制，实现物理按键禁用、语音唤醒停止、日程提醒拦截及状态持久化恢复
+- 完成 WebSocket 实时语音对话闭环，支持双 AI 引擎降级、断线重连、静音检测与资源释放
+- 通过 JNI/GPIO、串口协议控制底层硬件，并接入 AWS Cognito、AWS IoT、日志上传与静默升级
+
+**技术要点**：
+- Java + Android 原生 UI + DataBinding，项目持续迭代至 `1.0.182`
+- 基于 WebSocket 实现「采集 → ASR → AI 推理 → TTS → 播放」实时语音全链路
+- 集成 Vosk 本地唤醒词，支持 Realtime/Standard 双引擎自动降级
+- 采用单例 + 监听器统一管理 Focus 状态，确保专注过程不受物理按键、唤醒和提醒打扰
+- 实现 JNI/GPIO 按键、串口 STM32 通信、WS2812 氛围灯与副屏动画调度
+- 接入 AWS Cognito 登录与 Token 刷新去重、AWS IoT MQTT、应用内静默 OTA
+- 处理多语言、多时区、线程安全、弱网连接和系统音量接管等稳定性问题
+
+---
+
+## 2. ZIEA
+**担任角色**：Flutter 开发工程师（独立开发）  
+**项目周期**：2025.12–2026.09
+
+**项目概述**：基于 Flutter 开发的跨平台智能任务管理应用，集成 AI 助手、蓝牙设备连接、日历同步、订阅支付、数据洞察与游戏化等功能，帮助用户高效管理日常任务和日程，支持 iOS 和 Android 双平台。
+
+**个人职责**：
+- 项目负责人（独立开发）
+- 负责应用的核心功能开发，包括 AI 聊天、智能日程、蓝牙专注、日历同步、订阅支付、数据洞察与游戏化等核心模块
+- 设计良好的架构，采用 Flutter + Dart 开发，使用 ChangeNotifier / Stream 进行状态管理，分层清晰、易维护
+- 编写开发规范、代码规范、组件描述、模块划分、方法注解，提升协作与维护效率
+- 协助测试团队进行功能测试和性能测试，保证应用的质量和稳定性
+
+**技术要点**：
+- 从 0 到 1 搭建 Flutter 项目并设计网络请求架构，采用 HTTP + WebSocket 实现高效稳定的网络通信
+- 集成 WebSocket 实现 AI 助手实时流式响应，支持语音转文字输入、断线重连与超时容错
+- 实现智能日程核心功能，包括重复任务（RRULE）、周/月视图、事件重叠智能布局与本地离线缓存
+- 集成 Google Calendar、Outlook、iCloud 日历同步，支持事件导入和双向同步
+- 集成 AWS Cognito 认证系统，支持 Google / Apple / 邮箱 / 二维码多端登录，实现 JWT Token 安全存储与静默刷新
+- 集成 RevenueCat 支付系统，使用 purchases_flutter SDK 实现 Pro / Ultra 双档订阅（月/年套餐），支持 IAP 管理与购买记录持久化
+- 集成蓝牙低功耗（BLE）设备连接，使用 universal_ble 实现与 Ziead 硬件设备的通信，支持专注模式自动触发与系统 DND 同步
+- 开发数据洞察与游戏化模块，包括专注统计、能量趋势、核心评分、盲盒图鉴与开盒动画
+- 使用 Drift（SQLite）实现本地数据库，支持离线数据缓存和快速查询
+- 开发多语言国际化系统，支持英文、中文（简体/繁体）、日文、韩文、法文、德文、西班牙文、意大利文、葡萄牙文等 10 种语言
+- 自定义图表组件实现专注度趋势分析、能量趋势可视化等数据展示
+- 开发 Focus 模式功能，结合蓝牙设备实现专注计时和数据分析
+
+---
+
+## 3. Another Me
 **担任角色**：前端开发工程师  
 **项目周期**：2025.03-2025.11
 
@@ -28,7 +80,7 @@
 
 ---
 
-## 2. Another Me - 去中心化 AI 算力共享平台 官网
+## 4. Another Me - 去中心化 AI 算力共享平台 官网
 **担任角色**：前端开发工程师  
 **项目周期**：2025.03-2025.11
 
@@ -54,7 +106,7 @@
 
 ---
 
-## 3. RWA Frontend
+## 5. RWA Frontend
 **担任角色**：前端开发工程师  
 **项目周期**：2025.09-2025.11
 
@@ -81,7 +133,7 @@
 
 ---
 
-## 4. Jarvis
+## 6. Jarvis
 **担任角色**：前端开发工程师  
 **项目周期**：2025.03-2025.11
 
@@ -110,7 +162,7 @@
 
 ---
 
-## 5. AI 拍照机
+## 7. AI 拍照机
 **担任角色**：前端开发工程师  
 **项目周期**：2024.07-2025.02
 
@@ -128,7 +180,7 @@
 
 ---
 
-## 6. 车库导航小程序
+## 8. 车库导航小程序
 **担任角色**：Uniapp 前端开发工程师  
 **项目周期**：2023.12-2024.07
 
@@ -146,7 +198,7 @@
 
 ---
 
-## 7. 部署工具 Pro
+## 9. 部署工具 Pro
 **担任角色**：前端开发工程师  
 **项目周期**：2022.06-2024.07
 
@@ -165,7 +217,7 @@
 
 ---
 
-## 8. tink（香港苏宁，三星门店 app）
+## 10. tink（香港苏宁，三星门店 app）
 **担任角色**：Android 开发工程师  
 **项目周期**：2021.01-2022.03
 
@@ -182,7 +234,7 @@
 
 ---
 
-## 8. Samsung App
+## 11. Samsung App
 **担任角色**：iOS 开发工程师  
 **项目周期**：2021.01-2022.03
 
@@ -202,7 +254,7 @@
 
 ---
 
-## 10. 苹果 MTA 手机自动回收机
+## 12. 苹果 MTA 手机自动回收机
 **担任角色**：Android 开发工程师  
 **项目周期**：2019.07-2021.12
 
@@ -221,7 +273,7 @@
 
 ---
 
-## 11. 大器管理（团队开发）
+## 13. 大器管理（团队开发）
 **担任角色**：iOS 开发工程师  
 **项目周期**：2018.03-2019.06
 
@@ -242,7 +294,7 @@
   
 ---
 
-## 12. 到喜啦
+## 14. 到喜啦
 **担任角色**：iOS 开发工程师  
 **项目周期**：2017.03-2018.01
 
@@ -261,7 +313,7 @@
 
 ---
 
-## 13. ANADA（独立开发）
+## 15. ANADA（独立开发）
 **担任角色**：iOS 开发工程师  
 **项目周期**：2015.10-2018.01
 
@@ -287,7 +339,7 @@
 
 ---
 
-## 14. 婚礼自由人
+## 16. 婚礼自由人
 **担任角色**：iOS 开发工程师  
 **项目周期**：2015.10-2018.01
 
@@ -305,7 +357,7 @@
 
 ---
 
-## 15. 大圣理财
+## 17. 大圣理财
 **担任角色**：iOS 开发工程师  
 **项目周期**：2015.03-2015.10
 
@@ -332,7 +384,59 @@
 
 # Project Experience (English)
 
-## 1. Another Me
+## 1. ZIEAD Smart Focus Terminal (Android)
+**Role**: Android Engineer  
+**Duration**: 2025.12–2026.09
+
+**Project Overview**: Android-based hardware-software integrated smart terminal app, combining focus timing, real-time AI voice assistant, schedule management, and hardware control over Bluetooth, serial, and GPIO, delivering an immersive focus experience.
+
+**Responsibilities**:
+- Led development and continuous iteration of core modules including Focus mode, real-time AI voice assistant, hardware control, account authentication, and OTA
+- Unified Focus mode control: disabled physical buttons, voice wake-up stop, schedule reminder blocking, and persistent state recovery
+- Built a complete real-time WebSocket voice conversation loop with dual AI engine fallback, reconnection, silence detection, and resource release
+- Controlled low-level hardware through JNI/GPIO and serial protocols; integrated AWS Cognito, AWS IoT, log upload, and silent upgrades
+
+**Highlights**:
+- Java + native Android UI + DataBinding, iterated to `1.0.182`
+- Implemented the full real-time voice pipeline `capture → ASR → AI inference → TTS → playback` over WebSocket
+- Integrated Vosk local wake-word detection with automatic fallback between Realtime and Standard engines
+- Managed Focus state with singleton + listeners to keep focus sessions uninterrupted by physical buttons, wake-ups, and reminders
+- Implemented JNI/GPIO buttons, STM32 serial communication, WS2812 ambient lighting, and secondary-screen animation scheduling
+- Integrated AWS Cognito sign-in with token refresh deduplication, AWS IoT MQTT, and in-app silent OTA
+- Handled stability concerns including multilingual support, multiple time zones, thread safety, weak-network connectivity, and system volume takeover
+
+---
+
+## 2. ZIEA
+**Role**: Flutter Engineer (Indie Development)  
+**Duration**: 2025.12–2026.09
+
+**Project Overview**: Cross-platform intelligent task management app built with Flutter, integrating AI assistant, Bluetooth device connectivity, calendar sync, subscription payments, data insights, and gamification to help users efficiently manage daily tasks and schedules, supporting both iOS and Android.
+
+**Responsibilities**:
+- Project lead (indie development)
+- Built core features including AI chat, smart scheduling, Bluetooth focus, calendar sync, subscription payments, data insights, and gamification
+- Designed a clean, layered architecture with Flutter + Dart using ChangeNotifier / Stream for state management
+- Authored development standards, code conventions, component descriptions, module boundaries, and method annotations to improve collaboration and maintainability
+- Supported QA with functional and performance testing to ensure quality and stability
+
+**Highlights**:
+- Built Flutter project from scratch and designed network request architecture with HTTP + WebSocket for efficient, stable communication
+- Integrated WebSocket for real-time streaming AI assistant responses, with speech-to-text input, reconnection, and timeout handling
+- Implemented core smart scheduling features including recurring tasks (RRULE), weekly/monthly views, smart overlapping event layout, and local offline caching
+- Integrated Google Calendar, Outlook, and iCloud calendar sync, supporting event import and two-way synchronization
+- Integrated AWS Cognito authentication with Google / Apple / email / QR code sign-in and secure JWT token storage plus silent refresh
+- Integrated RevenueCat payments using purchases_flutter SDK for Pro / Ultra subscriptions (monthly/annual plans), supporting IAP management and purchase record persistence
+- Integrated BLE device connectivity with universal_ble to communicate with Ziead hardware, supporting automatic focus mode and system DND synchronization
+- Developed data insights and gamification modules including focus statistics, energy trends, core score, blind box collection, and unboxing animations
+- Used Drift (SQLite) for local database with offline caching and fast queries
+- Built multilingual i18n supporting English, Simplified/Traditional Chinese, Japanese, Korean, French, German, Spanish, Italian, and Portuguese (10 languages)
+- Created custom chart components for focus trend analysis and energy trend visualization
+- Developed Focus mode functionality combining Bluetooth devices for focus timing and data analytics
+
+---
+
+## 3. Another Me
 **Role**: Android Engineer  
 **Duration**: 2025.03–2025.11
 
@@ -360,7 +464,7 @@
 
 ---
 
-## 2. Another Me - Decentralized AI Computing Power Sharing Platform Website
+## 4. Another Me - Decentralized AI Computing Power Sharing Platform Website
 **Role**: Front-end Engineer  
 **Duration**: 2025.03–2025.11
 
@@ -386,7 +490,7 @@ Official website for a decentralized AI computing power sharing platform, visual
 
 ---
 
-## 3. RWA Frontend
+## 5. RWA Frontend
 **Role**: Front-end Engineer  
 **Duration**: 2025.09–2025.11
 
@@ -413,7 +517,7 @@ Official website for a decentralized AI computing power sharing platform, visual
 
 ---
 
-## 4. Jarvis
+## 6. Jarvis
 **Role**: Front-end Engineer  
 **Duration**: 2025.03–2025.11
 
@@ -441,7 +545,7 @@ Official website for a decentralized AI computing power sharing platform, visual
 
 ---
 
-## 5. AI Camera
+## 7. AI Camera
 **Role**: Front-end Engineer  
 **Duration**: 2024.07–2025.02
 
@@ -459,7 +563,7 @@ Responsibilities:
 
 ---
 
-## 6. Parking Garage Mini Program
+## 8. Parking Garage Mini Program
 **Role**: Uniapp Front-end Engineer  
 **Duration**: 2023.12–2024.07
 
@@ -476,7 +580,7 @@ Responsibilities:
 
 ---
 
-## 7. Deployment Tool Pro
+## 9. Deployment Tool Pro
 **Role**: Front-end Engineer  
 **Duration**: 2022.06–2024.07
 
@@ -492,7 +596,7 @@ Responsibilities:
 
 ---
 
-## 8. tink (Suning HK, Samsung Store App)
+## 10. tink (Suning HK, Samsung Store App)
 **Role**: Android Engineer  
 **Duration**: 2021.01–2022.03
 
@@ -508,7 +612,7 @@ Responsibilities:
 
 ---
 
-## 8. Samsung App
+## 11. Samsung App
 **Role**: iOS Engineer  
 **Duration**: 2021.01–2022.03
 
@@ -525,7 +629,7 @@ Responsibilities:
 
 ---
 
-## 10. Apple MTA Automated Phone Recycling Machine
+## 12. Apple MTA Automated Phone Recycling Machine
 **Role**: Android Engineer  
 **Duration**: 2019.07–2021.12
 
@@ -543,7 +647,7 @@ Responsibilities:
 
 ---
 
-## 11. Daqi Management (Team Development)
+## 13. Daqi Management (Team Development)
 **Role**: iOS Engineer  
 **Duration**: 2018.03–2019.06
 
@@ -562,7 +666,7 @@ Responsibilities:
 
 ---
 
-## 12. Daoxila
+## 14. Daoxila
 **Role**: iOS Engineer  
 **Duration**: 2017.03–2018.01
 
@@ -579,7 +683,7 @@ Responsibilities:
 
 ---
 
-## 13. ANADA (Indie Development)
+## 15. ANADA (Indie Development)
 **Role**: iOS Engineer  
 **Duration**: 2015.10–2018.01
 
@@ -599,7 +703,7 @@ Responsibilities:
 
 ---
 
-## 14. Wedding Freelancer
+## 16. Wedding Freelancer
 **Role**: iOS Engineer  
 **Duration**: 2015.10–2018.01
 
@@ -614,7 +718,7 @@ Responsibilities:
 
 ---
 
-## 15. Dasheng Finance
+## 17. Dasheng Finance
 **Role**: iOS Engineer  
 **Duration**: 2015.03–2015.10
 
