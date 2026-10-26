@@ -126,7 +126,7 @@ Flutter, Dart, WebSocket, SQLite, AWS Cognito, RevenueCat, BLE, OAuth 2.0
 
 ---
 
-## 5. RWA Frontend
+## 5. FIRE X
 
 **担任角色**：前端开发工程师  
 **项目周期**：2025.09-2025.11
